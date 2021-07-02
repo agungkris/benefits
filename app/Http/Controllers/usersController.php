@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class usersController extends Controller
 {
@@ -13,7 +13,7 @@ class usersController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $userModel;
-    public function _contruct()
+    public function __construct()
     {
         $this->userModel = new User();
     }
@@ -41,7 +41,27 @@ class usersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $createNewUsers = $this->userModel->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'city' => $request->city,
+            'photo' => $request->photo,
+            'about' => $request->about,
+            'age' => $request->age,
+            'zodiac' => $request->zodiac,
+            'drink' => $request->drink,
+            'gym' => $request->gym,
+            'smoke' => $request->smoke,
+            'status' => $request->status,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'isFriend' => $request->isFriend,
+            'interest' => $request->interest,
+            'password' => bcrypt($request->password),
+        ]);
+        return response()->json($createNewUsers);
     }
 
     /**
@@ -52,7 +72,8 @@ class usersController extends Controller
      */
     public function show($id)
     {
-        //
+        $findUsers = $this->userModel->find($id);
+        return response()->json($findUsers);
     }
 
     /**
@@ -75,7 +96,28 @@ class usersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $findUsers = $this->userModel->find($id);
+        $findUsers->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'city' => $request->city,
+            'photo' => $request->photo,
+            'about' => $request->about,
+            'age' => $request->age,
+            'zodiac' => $request->zodiac,
+            'drink' => $request->drink,
+            'gym' => $request->gym,
+            'smoke' => $request->smoke,
+            'status' => $request->status,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'isFriend' => $request->isFriend,
+            'interest' => $request->interest,
+            'password' => bcrypt($request->password),
+        ]);
+        return response()->json($findUsers);
     }
 
     /**
@@ -86,6 +128,8 @@ class usersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $findUsers = $this->userModel->find($id);
+        $findUsers->delete();
+        return response()->json($findUsers);
     }
 }
