@@ -32,6 +32,7 @@ class AuthController extends Controller
                     'msg' => 'Unathorized',
                     'errors' => null,
                     'content' => null,
+
                 ];
                 return response()->json($respon, 401);
             }
@@ -50,7 +51,28 @@ class AuthController extends Controller
                     'notif_code' => 200,
                     'access_token' => $tokenResult,
                     'token_type' => 'Bearer',
-                ]
+                ],
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'gender' => $request->gender,
+                'city' => $request->city,
+                'photo1' => $request->photo1,
+                'photo2' => $request->photo2,
+                'photo3' => $request->photo3,
+                'photo4' => $request->photo4,
+                'about' => $request->about,
+                'age' => $request->age,
+                'zodiac' => $request->zodiac,
+                'drink' => $request->drink,
+                'gym' => $request->gym,
+                'smoke' => $request->smoke,
+                'status' => $request->status,
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+                'isFriend' => $request->isFriend,
+                'interest' => $request->interest,
+                'password' => bcrypt($request->password),
             ];
             return response()->json($respon, 200);
         }
