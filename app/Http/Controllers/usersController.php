@@ -42,23 +42,7 @@ class usersController extends Controller
      */
     public function store(Request $request)
     {
-        // if ($request->file('photo1')) {
-        //     $photo1 = $request->file('photo1')->move(public_path('documents'), $request->file('photo1')->getClientOriginalName());
-        //     $loadData1['photo1'] = $photo1;
-        // }
-        // if ($request->file('photo2')) {
-        //     $photo2 = $request->file('photo2')->move(public_path('documents'), $request->file('photo2')->getClientOriginalName());
-        //     $loadData2['photo2'] = $photo2;
-        // }
-        // if ($request->file('photo3')) {
-        //     $photo3 = $request->file('photo3')->move(public_path('documents'), $request->file('photo3')->getClientOriginalName());
-        //     $loadData3['photo3'] = $photo3;
-        // }
-        // if ($request->file('photo4')) {
-        //     $photo4 = $request->file('photo4')->move(public_path('documents'), $request->file('photo4')->getClientOriginalName());
-        //     $loadData4['photo4'] = $photo4;
-        // }
-        $createNewUsers = $this->userModel->updateOrCreate([
+        $createNewUsers = $this->userModel->create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -117,43 +101,16 @@ class usersController extends Controller
     public function update(Request $request, $id)
     {
         $findUsers = $this->userModel->find($id);
-
-        // if ($request->file('photo1')) {
-        //     $photo1 = $request->file('photo1')->storeAs('documents', $request->file('photo1')->getClientOriginalName());
-        //     $loadData['photo1'] = $photo1;
-        // }
-        // if ($request->file('photo1')) {
-        //     $photo1 = $request->file('photo1')->move(public_path('documents'), $request->file('photo1')->getClientOriginalName());
-        //     $loadData['photo1'] = $photo1;
-        // }
-        // if ($request->file('photo2')) {
-        //     $photo2 = $request->file('photo2')->move(public_path('documents'), $request->file('photo2')->getClientOriginalName());
-        //     $loadData['photo2'] = $photo2;
-        // }
-        // if ($request->file('photo3')) {
-        //     $photo3 = $request->file('photo3')->move(public_path('documents'), $request->file('photo3')->getClientOriginalName());
-        //     $loadData['photo3'] = $photo3;
-        // }
-        // if ($request->file('photo4')) {
-        //     $photo4 = $request->file('photo4')->move(public_path('documents'), $request->file('photo4')->getClientOriginalName());
-        //     $loadData['photo4'] = $photo4;
-        // }
-        // if ($request->file('photo2')) {
-        //     if ($findUsers && Storage::exists($findUsers->photo2)) {
-        //         Storage::delete($findUsers->photo2);
-        //     }
-        //     $photo2 = $request->file('photo2')->move(public_path('documents'), $request->file('photo2')->getClientOriginalName());
-        //     $loadData['photo2'] = $photo2;
-        // }
         $findUsers->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'gender' => $request->gender,
             'city' => $request->city,
-            // 'photo2' => $request->photo2,
-            // 'photo3' => $request->photo3,
-            // 'photo4' => $request->photo4,
+            'photo1' => $request->photo1,
+            'photo2' => $request->photo2,
+            'photo3' => $request->photo3,
+            'photo4' => $request->photo4,
             'about' => $request->about,
             'age' => $request->age,
             'zodiac' => $request->zodiac,
