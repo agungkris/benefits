@@ -72,10 +72,21 @@ class AuthController extends Controller
                 'longitude' => $request->longitude,
                 'isFriend' => $request->isFriend,
                 'interest' => $request->interest,
-                'password' => bcrypt($request->password),
             ];
             return response()->json($respon, 200);
         }
+    }
+
+    public function getUser(Request $request)
+    {
+        // $findUser =
+        $user = User::find(auth()->id());
+        return response()->json([
+            'user' => $user,
+            'token' => $user->tokens()->orderBy('id', 'desc')->first()
+        ]);
+        // return
+
     }
 
     public function logout(Request $request) {

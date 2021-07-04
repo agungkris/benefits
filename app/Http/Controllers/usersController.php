@@ -63,6 +63,8 @@ class usersController extends Controller
             'longitude' => $request->longitude,
             'isFriend' => $request->isFriend,
             'interest' => $request->interest,
+            'education' => $request->education,
+            'religion' => $request->religion,
             'password' => bcrypt($request->password),
         ]);
         return response()->json($createNewUsers);
@@ -122,6 +124,8 @@ class usersController extends Controller
             'longitude' => $request->longitude,
             'isFriend' => $request->isFriend,
             'interest' => $request->interest,
+            'education' => $request->education,
+            'religion' => $request->religion,
             'password' => bcrypt($request->password),
         ]);
         return response()->json($findUsers);

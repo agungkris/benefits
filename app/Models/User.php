@@ -39,6 +39,8 @@ class User extends Authenticatable
         'longitude',
         'isFriend',
         'interest',
+        'education',
+        'religion',
         'notif'
     ];
 

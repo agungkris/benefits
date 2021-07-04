@@ -26,7 +26,9 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function() {
     // manggil controller dengan mengubah namespace di RouteServiceProvider.php biar bisa kayak versi2 sebelumnya
     Route::post('logoutall', 'AuthController@logoutall');
 });
-
+Route::prefix('/auth')->group(function () {
+    Route::get('/', 'AuthController@getUser')->middleware('auth:sanctum');
+});
 Route::prefix('/users')->group(function(){
     Route::get('/', 'usersController@index');
     Route::post('/create', 'usersController@store');
