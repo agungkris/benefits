@@ -35,4 +35,5 @@ Route::prefix('/users')->group(function(){
     Route::post('/update/{id}', 'usersController@update');
     Route::get('/get/{id}', 'usersController@show');
     Route::delete('/delete/{id}', 'usersController@destroy');
+    Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
 });

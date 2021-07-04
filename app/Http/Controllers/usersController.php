@@ -25,6 +25,13 @@ class usersController extends Controller
         return response()->json($getAllUsers);
     }
 
+    public function random()
+    {
+        // $getCity =
+        // $getAllUsers = $this->userModel->get();
+        // return response()->json($getAllUsers);
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return \Illuminate\Http\Response
