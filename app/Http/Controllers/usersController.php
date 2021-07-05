@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class usersController extends Controller
 {
@@ -25,10 +26,16 @@ class usersController extends Controller
         return response()->json($getAllUsers);
     }
 
-    public function random()
+    public function random(Request $request)
     {
-        $getCity =
-        $getAllUsers = $this->userModel->get();
+        // $result = QueryBuilder::for(User::class)->allowedFilters('city')->get();
+        $getAllUsers = $this->userModel
+        ->where('city', $request->city)
+        ->where('gender', $request->gender)
+        ->where('isFriend', 0)
+        ->inRandomOrder()
+        ->skip(0)->take(20)
+        ->get();
         return response()->json($getAllUsers);
     }
 
