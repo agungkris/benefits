@@ -37,6 +37,7 @@ class CreateUsersTable extends Migration
             $table->string('interest')->nullable();
             $table->string('religion')->nullable();
             $table->string('education')->nullable();
+            $table->integer('limit')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('notif')->default('aktif');

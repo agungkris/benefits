@@ -41,6 +41,7 @@ class User extends Authenticatable
         'interest',
         'education',
         'religion',
+        'limit',
         'notif'
     ];
 

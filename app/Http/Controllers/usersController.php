@@ -28,13 +28,15 @@ class usersController extends Controller
 
     public function random(Request $request)
     {
+
         // $result = QueryBuilder::for(User::class)->allowedFilters('city')->get();
         $getAllUsers = $this->userModel
         ->where('city', $request->city)
         ->where('gender', $request->gender)
         ->where('isFriend', 0)
+        ->where('id', '!=' , auth()->id())
         ->inRandomOrder()
-        ->skip(0)->take(20)
+        ->skip(0)->take($request->limit)
         ->get();
         return response()->json($getAllUsers);
     }
@@ -79,6 +81,7 @@ class usersController extends Controller
             'interest' => $request->interest ? $request->interest : "",
             'education' => $request->education ? $request->education : "",
             'religion' => $request->religion ? $request->religion : "",
+            'limit' => $request->limit ? $request->limit : 20,
             'password' => bcrypt($request->password),
         ]);
         return response()->json($createNewUsers);
@@ -140,6 +143,7 @@ class usersController extends Controller
             'interest' => $request->interest,
             'education' => $request->education,
             'religion' => $request->religion,
+            'limit' => $request->limit,
             'password' => bcrypt($request->password),
         ]);
         return response()->json($findUsers);
