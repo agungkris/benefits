@@ -28,8 +28,6 @@ class usersController extends Controller
 
     public function random(Request $request)
     {
-
-        // $result = QueryBuilder::for(User::class)->allowedFilters('city')->get();
         $getAllUsers = $this->userModel
         ->where('city', $request->city)
         ->where('gender', $request->gender)
