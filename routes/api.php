@@ -36,4 +36,5 @@ Route::prefix('/users')->group(function(){
     Route::get('/get/{id}', 'usersController@show');
     Route::delete('/delete/{id}', 'usersController@destroy');
     Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
+    Route::get('/city', 'usersController@city');
 });
