@@ -150,33 +150,113 @@ class usersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $findUsers = $this->userModel->find($id);
-        $findUsers->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'gender' => $request->gender,
-            'city' => $request->city,
-            'photo1' => $request->photo1,
-            'photo2' => $request->photo2,
-            'photo3' => $request->photo3,
-            'photo4' => $request->photo4,
-            'about' => $request->about,
-            'age' => $request->age,
-            'zodiac' => $request->zodiac,
-            'drink' => $request->drink,
-            'gym' => $request->gym,
-            'smoke' => $request->smoke,
-            'status' => $request->status,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'isFriend' => $request->isFriend,
-            'interest' => $request->interest,
-            'education' => $request->education,
-            'religion' => $request->religion,
-            'password' => bcrypt($request->password),
-        ]);
-        return response()->json($findUsers);
+        // $findUsers = $this->userModel->find($id);
+        // $user    = !empty($request->user)?$request->user:"";
+        $name      = !empty($request->name)      ? $request->name      : "";
+        $email     = !empty($request->email)     ? $request->email     : "";
+        $phone     = !empty($request->phone)     ? $request->phone     : "";
+        $gender    = !empty($request->gender)    ? $request->gender    : "";
+        $city      = !empty($request->city)      ? $request->city      : "";
+        $photo1    = !empty($request->photo1)    ? $request->photo1    : "";
+        $photo2    = !empty($request->photo2)    ? $request->photo2    : "";
+        $photo3    = !empty($request->photo3)    ? $request->photo3    : "";
+        $photo4    = !empty($request->photo4)    ? $request->photo4    : "";
+        $about     = !empty($request->about)     ? $request->about     : "";
+        $age       = !empty($request->age)       ? $request->age       : "";
+        $zodiac    = !empty($request->zodiac)    ? $request->zodiac    : "";
+        $drink     = !empty($request->drink)     ? $request->drink     : "";
+        $gym       = !empty($request->gym)       ? $request->gym       : "";
+        $smoke     = !empty($request->smoke)     ? $request->smoke     : "";
+        $status    = !empty($request->status)    ? $request->status    : "";
+        $latitude  = !empty($request->latitude)  ? $request->latitude  : "";
+        $longitude = !empty($request->longitude) ? $request->longitude : "";
+        $isFriend  = !empty($request->isFriend)  ? $request->isFriend  : "";
+        $interest  = !empty($request->interest)  ? $request->interest  : "";
+        $education = !empty($request->education) ? $request->education : "";
+        $religion  = !empty($request->religion)  ? $request->religion  : "";
+        $password  = !empty($request->password)  ? $request->password  : "";
+
+        // $User      = User::find($id);
+        // $name      = "";
+        // $email     = "";
+        // $phone     = "";
+        // $gender    = "";
+        // $city      = "";
+        // $photo1    = "";
+        // $photo2    = "";
+        // $photo3    = "";
+        // $photo4    = "";
+        // $about     = "";
+        // $age       = "";
+        // $zodiac    = "";
+        // $drink     = "";
+        // $gym       = "";
+        // $smoke     = "";
+        // $status    = "";
+        // $latitude  = "";
+        // $longitude = "";
+        // $isFriend  = "";
+        // $interest  = "";
+        // $education = "";
+        // $religion  = "";
+        // $password  = "";
+
+        $User      = User::find($id);
+
+        // $User->user           = $user;
+        $User->name      = $request->name      ? $name      : $User->name;
+        $User->email     = $request->email     ? $email     : $User->email;
+        $User->phone     = $request->phone     ? $phone     : $User->phone;
+        $User->gender    = $request->gender    ? $gender    : $User->gender;
+        $User->city      = $request->city      ? $city      : $User->city;
+        $User->photo1    = $request->photo1    ? $photo1    : $User->photo1;
+        $User->photo2    = $request->photo2    ? $photo2    : $User->photo2;
+        $User->photo3    = $request->photo3    ? $photo3    : $User->photo3;
+        $User->photo4    = $request->photo4    ? $photo4    : $User->photo4;
+        $User->about     = $request->about     ? $about     : $User->about;
+        $User->age       = $request->age       ? $age       : $User->age;
+        $User->zodiac    = $request->zodiac    ? $zodiac    : $User->zodiac;
+        $User->drink     = $request->drink     ? $drink     : $User->drink;
+        $User->gym       = $request->gym       ? $gym       : $User->gym;
+        $User->smoke     = $request->smoke     ? $smoke     : $User->smoke;
+        $User->status    = $request->status    ? $status    : $User->status;
+        $User->latitude  = $request->latitude  ? $latitude  : $User->latitude;
+        $User->longitude = $request->longitude ? $longitude : $User->longitude;
+        $User->isFriend  = $request->isFriend  ? $isFriend  : $User->isFriend;
+        $User->interest  = $request->interest  ? $interest  : $User->interest;
+        $User->education = $request->education ? $education : $User->education;
+        $User->religion  = $request->religion  ? $religion  : $User->religion;
+        $User->password  = $request->password  ? $password  : $User->password;
+        $User->save();
+        // $findUsers->update([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'phone' => $request->phone,
+        //     'gender' => $request->gender,
+        //     'city' => $request->city,
+        //     'photo1' => $request->photo1,
+        //     'photo2' => $request->photo2,
+        //     'photo3' => $request->photo3,
+        //     'photo4' => $request->photo4,
+        //     'about' => $request->about,
+        //     'age' => $request->age,
+        //     'zodiac' => $request->zodiac,
+        //     'drink' => $request->drink,
+        //     'gym' => $request->gym,
+        //     'smoke' => $request->smoke,
+        //     'status' => $request->status,
+        //     'latitude' => $request->latitude,
+        //     'longitude' => $request->longitude,
+        //     'isFriend' => $request->isFriend,
+        //     'interest' => $request->interest,
+        //     'education' => $request->education,
+        //     'religion' => $request->religion,
+        //     'password' => bcrypt($request->password),
+        // ]);
+        if($User->save()){
+            return response()->json($User);
+        }
+
     }
 
     /**
