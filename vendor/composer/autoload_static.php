@@ -129,6 +129,8 @@ class ComposerStaticInitb675e41661d46734acafa2e27cf03ddd
         array (
             'Illuminate\\Support\\' => 19,
             'Illuminate\\' => 11,
+            'Igaster\\LaravelCities\\Tests\\' => 28,
+            'Igaster\\LaravelCities\\' => 22,
         ),
         'G' => 
         array (
@@ -404,6 +406,14 @@ class ComposerStaticInitb675e41661d46734acafa2e27cf03ddd
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Igaster\\LaravelCities\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/igaster/laravel_cities/tests',
+        ),
+        'Igaster\\LaravelCities\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/igaster/laravel_cities/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -1576,6 +1586,23 @@ class ComposerStaticInitb675e41661d46734acafa2e27cf03ddd
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Igaster\\LaravelCities\\Geo' => __DIR__ . '/..' . '/igaster/laravel_cities/src/Geo.php',
+        'Igaster\\LaravelCities\\GeoController' => __DIR__ . '/..' . '/igaster/laravel_cities/src/GeoController.php',
+        'Igaster\\LaravelCities\\GeoServiceProvider' => __DIR__ . '/..' . '/igaster/laravel_cities/src/GeoServiceProvider.php',
+        'Igaster\\LaravelCities\\Tests\\App\\TestModel' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/App/TestModel.php',
+        'Igaster\\LaravelCities\\Tests\\abstractTest' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/abstractTest.php',
+        'Igaster\\LaravelCities\\Tests\\apiTest' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/apiTest.php',
+        'Igaster\\LaravelCities\\Tests\\dbTest' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/dbTest.php',
+        'Igaster\\LaravelCities\\Tests\\geoTest' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/geoTest.php',
+        'Igaster\\LaravelCities\\Tests\\seedTest' => __DIR__ . '/..' . '/igaster/laravel_cities/tests/seedTest.php',
+        'Igaster\\LaravelCities\\commands\\BuildPplTree' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/BuildPplTree.php',
+        'Igaster\\LaravelCities\\commands\\Download' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/Download.php',
+        'Igaster\\LaravelCities\\commands\\helpers\\geoCollection' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/helpers/geoCollection.php',
+        'Igaster\\LaravelCities\\commands\\helpers\\geoItem' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/helpers/geoItem.php',
+        'Igaster\\LaravelCities\\commands\\seedGeoFile' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/seedGeoFile.php',
+        'Igaster\\LaravelCities\\commands\\seedJsonFile' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/seedJsonFile.php',
+        'Igaster\\LaravelCities\\commands\\truncTable' => __DIR__ . '/..' . '/igaster/laravel_cities/src/commands/truncTable.php',
+        'Igaster\\LaravelCities\\dbTree\\EloquentTreeItem' => __DIR__ . '/..' . '/igaster/laravel_cities/src/dbTree/EloquentTreeItem.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

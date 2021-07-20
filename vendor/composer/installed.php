@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b9ecd9fe60f82649bbeb2e15919493f0bd79ec8a',
+        'reference' => 'c1409184f9adf175ce089935230863b69fa16767',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -192,6 +192,15 @@
             'aliases' => array(),
             'reference' => '8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
             'dev_requirement' => true,
+        ),
+        'igaster/laravel_cities' => array(
+            'pretty_version' => 'v1.3.11',
+            'version' => '1.3.11.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../igaster/laravel_cities',
+            'aliases' => array(),
+            'reference' => '8ff3c4bfdf5152f1858d54d256926071ee0fc1c0',
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -400,7 +409,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b9ecd9fe60f82649bbeb2e15919493f0bd79ec8a',
+            'reference' => 'c1409184f9adf175ce089935230863b69fa16767',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
