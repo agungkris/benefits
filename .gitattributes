@@ -4,3 +4,5 @@
 *.js linguist-vendored
 CHANGELOG.md export-ignore
 storage/geo/allCountries.txt filter=lfs diff=lfs merge=lfs -text
+allcountries.txt filter=lfs diff=lfs merge=lfs -text
+*.txt filter=lfs diff=lfs merge=lfs -text
