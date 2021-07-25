@@ -16,6 +16,7 @@ class CityController extends Controller
     public function __construct()
     {
         $this->cityModel = new City();
+        // tes
     }
 
     public function index()
