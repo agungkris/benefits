@@ -38,3 +38,12 @@ Route::prefix('/users')->group(function(){
     Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
     Route::get('/city', 'usersController@city');
 });
+Route::prefix('/cities')->group(function(){
+    Route::get('/', 'CityController@index');
+    // Route::post('/create', 'usersController@store');
+    // Route::post('/update/{id}', 'usersController@update');
+    // Route::get('/get/{id}', 'usersController@show');
+    // Route::delete('/delete/{id}', 'usersController@destroy');
+    // Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
+    // Route::get('/city', 'usersController@city');
+});
