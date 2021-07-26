@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\City;
+// use App\Models\City;
+use Igaster\LaravelCities\Geo;
 
 class CityController extends Controller
 {
@@ -12,15 +13,21 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $cityModel;
-    public function __construct()
-    {
-        $this->cityModel = new City();
-    }
+    // private $cityModel;
+    // public function __construct()
+    // {
+    //     $this->cityModel = new City();
+    // }
 
     public function index()
     {
-        $getAllCities = $this->cityModel->get();
+        $getAllCities =
+        Geo::getCountry('US');             // Get item by Country code
+        Geo::findName('Nomos Kerkyras');   // Find item by (ascii) name
+        Geo::searchNames('york');          // Search item by all alternative names. Case insensitive
+        Geo::searchNames('vegas', Geo::getCountry('US'));  // ... and belongs to an item
+        Geo::getByIds([390903,3175395]);   // Get a Collection of items by Ids
+
         return response()->json($getAllCities);
     }
 

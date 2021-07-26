@@ -4,25 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Igaster\LaravelCities\Geo;
 
 class City extends Model
 {
-    use HasFactory;
+    use HasFactory, Geo;
 
     protected $fillable = [
-        'parent_id',
-        'left',
-        'right',
-        'depth',
         'name',
         'alternames',
         'country',
-        'a1code',
+        'id',
         'level',
         'population',
         'lat',
         'long',
-        'timezone'
     ];
-    protected $table = 'geo';
+
 }
+
