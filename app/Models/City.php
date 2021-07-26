@@ -24,6 +24,5 @@ class City extends Model
         'long',
         'timezone'
     ];
-
     protected $table = 'geo';
 }
