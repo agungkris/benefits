@@ -43,36 +43,6 @@ class usersController extends Controller
         return response()->json($getAllUsers);
     }
 
-    public function city(Request $request)
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-        // "https://api.rajaongkir.com/starter/city?id=39&province=5"
-        CURLOPT_URL => "https://api.rajaongkir.com/starter/city",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => array(
-            "key: 0e60f6605999c9f62aa064cad8dca104"
-        ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-        echo "cURL Error #:" . $err;
-        } else {
-        echo $response;
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      * @return \Illuminate\Http\Response
@@ -150,8 +120,6 @@ class usersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $findUsers = $this->userModel->find($id);
-        // $user    = !empty($request->user)?$request->user:"";
         $name      = !empty($request->name)      ? $request->name      : "";
         $email     = !empty($request->email)     ? $request->email     : "";
         $phone     = !empty($request->phone)     ? $request->phone     : "";
@@ -176,34 +144,8 @@ class usersController extends Controller
         $religion  = !empty($request->religion)  ? $request->religion  : "";
         $password  = !empty($request->password)  ? $request->password  : "";
 
-        // $User      = User::find($id);
-        // $name      = "";
-        // $email     = "";
-        // $phone     = "";
-        // $gender    = "";
-        // $city      = "";
-        // $photo1    = "";
-        // $photo2    = "";
-        // $photo3    = "";
-        // $photo4    = "";
-        // $about     = "";
-        // $age       = "";
-        // $zodiac    = "";
-        // $drink     = "";
-        // $gym       = "";
-        // $smoke     = "";
-        // $status    = "";
-        // $latitude  = "";
-        // $longitude = "";
-        // $isFriend  = "";
-        // $interest  = "";
-        // $education = "";
-        // $religion  = "";
-        // $password  = "";
-
         $User      = User::find($id);
 
-        // $User->user           = $user;
         $User->name      = $request->name      ? $name      : $User->name;
         $User->email     = $request->email     ? $email     : $User->email;
         $User->phone     = $request->phone     ? $phone     : $User->phone;
@@ -228,31 +170,7 @@ class usersController extends Controller
         $User->religion  = $request->religion  ? $religion  : $User->religion;
         $User->password  = $request->password  ? $password  : $User->password;
         $User->save();
-        // $findUsers->update([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'gender' => $request->gender,
-        //     'city' => $request->city,
-        //     'photo1' => $request->photo1,
-        //     'photo2' => $request->photo2,
-        //     'photo3' => $request->photo3,
-        //     'photo4' => $request->photo4,
-        //     'about' => $request->about,
-        //     'age' => $request->age,
-        //     'zodiac' => $request->zodiac,
-        //     'drink' => $request->drink,
-        //     'gym' => $request->gym,
-        //     'smoke' => $request->smoke,
-        //     'status' => $request->status,
-        //     'latitude' => $request->latitude,
-        //     'longitude' => $request->longitude,
-        //     'isFriend' => $request->isFriend,
-        //     'interest' => $request->interest,
-        //     'education' => $request->education,
-        //     'religion' => $request->religion,
-        //     'password' => bcrypt($request->password),
-        // ]);
+
         if($User->save()){
             return response()->json($User);
         }
