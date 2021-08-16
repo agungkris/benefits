@@ -38,11 +38,18 @@ class FindController extends Controller
      */
     public function store(Request $request)
     {
+        // ketika sender dengan isFriend 1 ke reciever dan terdapat sender di id berbeda dengan isFriend 1 ke reciever
+        // hasilnya match 1
+        if ('id_sender' == 'id_reciever' //in another rows
+            // && 'id_reciever' == 'id_sender' //in another rows
+            && 'isFriend' == 1) {
+            'match' == 1;
+        }
         $createNewFind = $this->findModel->updateOrCreate([
             'id_sender' => auth()->id(),
             'isFriend' => $request->isFriend,
             'id_reciever' => $request->id_reciever,
-            'match' => $request->match
+            // 'match' => $request->match
         ]);
         return response()->json($createNewFind);
     }
