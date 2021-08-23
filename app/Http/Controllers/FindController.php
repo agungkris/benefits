@@ -21,16 +21,15 @@ class FindController extends Controller
 
     public function match()
     {
-        $getAllFind = $this->findModel
-        // ->with('sender','reciever')
-        ->where('id_sender',3);
-        // ->where('id_reciever', '!=' , auth()->id());
-        $getAllFind = $this->findModel->get();
+        $getAllFind = $this->findModel->with('sender','reciever')->get()
+        ->where('id_sender', '==', auth()->id());
+        // ->where('id_reciever');
+        // $getAllFind = $getAllFind->where('id_sender', '==', auth()->id());
 
-        // $getAllFind = $getAllFind
-        // ->where('id', '==' , auth()->id())
+        // foreach($getAllFind as $k=>$v){
+        //     echo $v['id_reciever'] == $v['id_sender'];
+        // }
 
-        // ->get();
         return response()->json($getAllFind);
         // dd($getAllFind);
     }

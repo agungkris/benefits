@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Find extends Model
 {
@@ -18,10 +19,10 @@ class Find extends Model
 
     public function sender()
     {
-        return $this->belongsTo(users::class, 'id_sender');
+        return $this->belongsTo(user::class, 'id_sender');
     }
     public function reciever()
     {
-        return $this->belongsTo(users::class, 'id_reciever');
+        return $this->belongsTo(user::class, 'id_reciever');
     }
 }
