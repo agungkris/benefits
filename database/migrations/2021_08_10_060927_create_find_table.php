@@ -16,9 +16,7 @@ class CreateFindTable extends Migration
         Schema::create('find', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_sender');
-            $table->integer("isFriend");
             $table->unsignedBigInteger("id_reciever");
-            $table->integer("match");
 
             $table->foreign('id_sender')->on('users')->references('id')->onDelete('cascade');
             $table->foreign('id_reciever')->on('users')->references('id')->onDelete('cascade');

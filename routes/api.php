@@ -40,6 +40,7 @@ Route::prefix('/users')->group(function(){
 });
 Route::prefix('/find')->group(function(){
     Route::get('/', 'FindController@index');
+    Route::get('/match', 'FindController@match')->middleware('auth:sanctum');
     Route::post('/create', 'FindController@store')->middleware('auth:sanctum');
     // Route::post('/update/{id}', 'usersController@update');
     // Route::get('/get/{id}', 'usersController@show');

@@ -11,9 +11,7 @@ class Find extends Model
 
     protected $fillable = [
         'id_sender',
-        'isFriend',
         'id_reciever',
-        'match'
     ];
 
     protected $table = 'find';
