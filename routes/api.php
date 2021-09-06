@@ -20,7 +20,7 @@ use App\Http\Controllers\AuthController;
 // });
 
 Route::post('login', 'AuthController@login');
-Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function() {
+Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
     // manggil controller sesuai bawaan laravel 8
     Route::post('logout', [AuthController::class, 'logout']);
     // manggil controller dengan mengubah namespace di RouteServiceProvider.php biar bisa kayak versi2 sebelumnya
@@ -29,7 +29,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function() {
 Route::prefix('/auth')->group(function () {
     Route::get('/', 'AuthController@getUser')->middleware('auth:sanctum');
 });
-Route::prefix('/users')->group(function(){
+Route::prefix('/users')->group(function () {
     Route::get('/', 'usersController@index');
     Route::post('/create', 'usersController@store');
     Route::post('/update/{id}', 'usersController@update');
@@ -38,9 +38,10 @@ Route::prefix('/users')->group(function(){
     Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
     Route::get('/city', 'usersController@city');
 });
-Route::prefix('/find')->group(function(){
+Route::prefix('/find')->group(function () {
     Route::get('/', 'FindController@index');
     Route::get('/match', 'FindController@match')->middleware('auth:sanctum');
+    Route::get('/match-simple', 'FindController@matchSimple')->middleware('auth:sanctum');
     Route::post('/create', 'FindController@store')->middleware('auth:sanctum');
     // Route::post('/update/{id}', 'usersController@update');
     // Route::get('/get/{id}', 'usersController@show');
@@ -48,7 +49,7 @@ Route::prefix('/find')->group(function(){
     // Route::get('/random', 'usersController@random')->middleware('auth:sanctum');
     // Route::get('/city', 'usersController@city');
 });
-Route::prefix('/cities')->group(function(){
+Route::prefix('/cities')->group(function () {
     Route::get('/', 'CityController@index');
     // Route::post('/create', 'usersController@store');
     // Route::post('/update/{id}', 'usersController@update');
